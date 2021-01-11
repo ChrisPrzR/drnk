@@ -1,6 +1,6 @@
 import getHash from '../utils/getHash'
 
-const API = 'https://www.thecocktaildb.com/api/json/v2/9973533/';
+const API = 'https://www.thecocktaildb.com/api/json/v2/xxxxxx/';
 
 const getData = async (id, hash) => {
     hash = getHash()
