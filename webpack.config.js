@@ -34,5 +34,10 @@ module.exports = {
             from: './src/styles/style.css',
             to: ''
         }])
-    ]
+    ],
+    devServer: {
+        host: 'localhost',//your ip address
+        port: 8081,
+        disableHostCheck: true
+    }
 }

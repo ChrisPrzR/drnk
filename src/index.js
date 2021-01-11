@@ -1,22 +1,51 @@
 import router from './routes/index';
+import getData from './utils/getData';
 
 window.addEventListener("load", router)
 window.addEventListener("hashchange", router)
 
+
+
+//add event listener
 const getRandomDrink = () => {
     const randomDrinkBtn = document.getElementById("random-drink")
-    randomDrinkBtn.addEventListener("click", ()=>{
+    randomDrinkBtn.addEventListener('click', ()=>{
         location.hash = "/random.php"
     })
 }
 
-setTimeout(() => {getRandomDrink()}, 1000)
+const getStringIng = () => {
+    const form = document.getElementById("ingrString")
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const string = document.getElementById("ingredient").value
+        location.hash = "/filter.php?i=" + string
+    })
+}
 
-    //add event listener
+const getStringDrink = () => {
+    const form = document.getElementById("drinkString")
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const string = document.getElementById("name").value
+        location.hash = "/search.php?s=" + string
+    })
+}
+
+const manyIngr = () => {
+    const form = document.getElementById("manyIngr")
+    form.addEventListener('submit', async(e) => {
+        e.preventDefault()
+        const string1 = document.getElementById("user-input1").value ? document.getElementById("user-input1").value : ''
+        const string2 = document.getElementById("user-input2").value ? ',' + document.getElementById("user-input2").value : ''
+        const string3 = document.getElementById("user-input3").value ? ',' + document.getElementById("user-input3").value : ''
+        const string4 = document.getElementById("user-input4").value ? ',' + document.getElementById("user-input4").value : ''
+
+        location.hash = "/filter.php?i=" + string1 + string2 + string3 + string4
+    })
+}
+export {getRandomDrink, getStringIng, getStringDrink, manyIngr} 
 
 
-// i need for the button to change the hash and render a random drink
-
-//need get data to include the hash for the query
-
-// if id in get data contains a hash id == await gethash() else run normally
+//I need to handle errors
+//I need to style it
