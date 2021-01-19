@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebPackPlugin = require('copy-webpack-plugin')
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -19,7 +19,27 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 }
-            }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+              },
+            {
+                test: /\.svg$/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {
+                        encoding: 'base64'
+                    }
+                }
+            }   
         ]
     },
     plugins: [
@@ -30,13 +50,10 @@ module.exports = {
                 filename: './index.html'
             }
         ),
-        new CopyWebPackPlugin([{
-            from: './src/styles/style.css',
-            to: ''
-        }])
+        new Dotenv(),
     ],
     devServer: {
-        host: 'localhost',//your ip address
+        host: 'localhost',
         port: 8081,
         disableHostCheck: true
     }

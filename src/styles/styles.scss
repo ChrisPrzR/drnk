@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$body-color: rgb(252, 245, 199);
+$main-text-color: rgb(35, 31, 32);
+$secondary-text-color: rgb(216, 30, 91);
+$multiuse-blue: rgb(184, 225, 255);
+$font-stack: 'Ubuntu', sans-serif;
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //Can change flex direction with a parameter
+}
+
+@mixin buttonStyles(){
+    margin-top: 25px;
+    padding: 8px;
+    border-radius: 40px;
+    background-color: rgba($multiuse-blue, .6);
+    border:2px solid $secondary-text-color;
+    font-weight: 700;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+
+@import 'cards';
+
+
+body {
+  background-color: $body-color;
+  font: 100% $font-stack;
+  height: 100vh;
+}
+
+.header-container {  
+  @include flexCenter();
+  border-radius: 0 0 35% 35%;
+  background-color: rgba($multiuse-blue, .6);
+
+  a{
+    @include flexCenter();
+    max-width: 10%;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 10px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: $main-text-color;
+  }
+  //Can add pseudo elements a::after{}
+}
+
+.call-action-container {
+  @include flexCenter();
+  flex-direction: column;
+  margin: 5% auto;
+
+  h1{
+    font-weight: 400;
+  }
+
+  button{
+    @include buttonStyles();
+  }
+  button:hover {
+    background-color: $secondary-text-color;
+    color: white
+  }
+}
+
+.Filters-container{
+  @include flexCenter();
+  flex-direction: column;
+  width: 30vw;
+  margin: 0 auto;
+  
+  .button {
+    @include buttonStyles();
+    margin: auto 10px;
+    padding: 5px;
+    font-weight: 300;
+    border: 1px solid $secondary-text-color;
+  }
+  .button:hover {
+    background-color: $secondary-text-color;
+    color: white
+  }
+
+  input{
+    border-radius: 40px;
+    border: 1px solid $multiuse-blue;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    margin-bottom: 5px;
+  }
+}
+.Ingredients-filter{
+  @include flexCenter();
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+}
+.Name-filter{
+  @include flexCenter();
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.Custom-filter{
+    @include flexCenter();
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+
+    .button{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+

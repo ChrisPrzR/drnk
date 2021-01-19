@@ -13,25 +13,26 @@ const Home = async () => {
 </datalist>`
     const view = `
         <section class="Section-main">
-            <h1>A New Way Of Making Cocktails</h1>
-            <button id="random-drink">
+            <div class="call-action-container">
+                <h1>A New Way Of Making Cocktails</h1>
+                <button id="random-drink">
                 Get A Recipe Now</button>
+            </div>
             <div class="Filters-container">
-                <p>Discover</p>
+                <h3>Discover</h3>
                 <div class="Ingredients-filter">
                     <h6>By Ingredient</h6>
-                    <label for="ingredient">Choose your ingredient from the list:</label>
                     <form id="ingrString">
-                        <input list="ingredients" type="text" name="ingredient" id="ingredient">
+                        <input list="ingredients" type="text" name="ingredient" id="ingredient" placeholder="Pick an ingredient">
                         ${renderIngList()}
-                        <input type="submit" value="Submit">
+                        <input class="button" type="submit" value="Submit">
                     </form>
                 </div>
                 <div class="Name-filter">
                     <h6>By Name</h6>
                     <form id="drinkString">
                         <input type="text" id="name" placeholder="Type A Drink Name Here">
-                        <input type="submit" value="Submit">
+                        <input class="button" type="submit" value="Submit">
                     </form>
                 </div>
                 <div class="Custom-filter">
@@ -45,7 +46,7 @@ const Home = async () => {
                         ${renderIngList()}
                         <input list="ingredients" type="text" id="user-input4" placeholder="Type Ingredient Here">
                         ${renderIngList()}
-                        <input type="submit" value="Submit">
+                        <input class="button" type="submit" value="Submit">
                     </form>
                 </div>
             </div>

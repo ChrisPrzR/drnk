@@ -1,12 +1,11 @@
 import router from './routes/index';
-import getData from './utils/getData';
+import "./styles/styles.scss"
 
 window.addEventListener("load", router)
 window.addEventListener("hashchange", router)
 
 
 
-//add event listener
 const getRandomDrink = () => {
     const randomDrinkBtn = document.getElementById("random-drink")
     randomDrinkBtn.addEventListener('click', ()=>{
@@ -46,6 +45,3 @@ const manyIngr = () => {
 }
 export {getRandomDrink, getStringIng, getStringDrink, manyIngr} 
 
-
-//I need to handle errors
-//I need to style it

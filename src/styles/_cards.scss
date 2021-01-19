@@ -1,0 +1,76 @@
+.Drink-card{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.Drink-main{
+    @include flexCenter();
+    flex-direction: column;
+    margin-left: 10px;
+    height: 30vh;
+    width: auto;
+    padding: 10px;
+    margin-top: 10px;
+    color: rgba($secondary-text-color, 0.8);
+    font-weight: 300;
+    text-shadow: 1px 2px rgba(0,0,0,0.3);
+
+    img {
+      border-radius: 50% 20% / 10% 40%;
+      height: 90%;
+      width: auto;
+      margin-bottom: 5px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+  }
+
+  .Drink-info{
+    @include flexCenter();
+    flex-direction: column;
+    width: 25vw;
+    height: 30vh;
+    font-weight: 400;
+    margin: 20px;
+
+    ul{
+        margin-top: 5px;
+        list-style: url('./utils/cocktail.svg');        
+        li {
+            padding: 10px;
+
+            span{
+                font-weight: 300;
+            }
+        }
+    }
+
+    .instructions-container{
+        font-weight: 300;
+        overflow:auto;
+        text-overflow: ellipsis;
+    }
+  }
+
+  .back-btn{
+      @include buttonStyles();
+      display: block;
+      width: 80px;
+      text-align: center;
+      margin: 10px;
+      text-decoration: none;
+      .back-btn:hover {
+        background-color: $secondary-text-color;
+        color: white 
+      }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .Drink-card {
+      @include flexCenter();
+      flex-direction: column;
+    }
+
+    .Drink-info{
+      width: 80%;
+    }
+  }

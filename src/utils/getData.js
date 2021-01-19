@@ -1,6 +1,7 @@
 import getHash from '../utils/getHash'
 
-const API = 'https://www.thecocktaildb.com/api/json/v2/9973533/';
+
+const API = 'https://www.thecocktaildb.com/api/json/v2/' + process.env.API_KEY + '/';
 
 const getData = async (id, hash) => {
     hash = getHash()
@@ -11,6 +12,7 @@ const getData = async (id, hash) => {
         return data;
     } catch (error){
         console.log('Fetch Error', error);
+        return null;
     };
 };
 
