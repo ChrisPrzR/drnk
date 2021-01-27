@@ -1,7 +1,7 @@
 const Header = () => {
     const view = `
         <div class="header-container">
-            <a href="/">drnks</a>
+            <a href="/drnk">drnks</a>
         </div>
     `
     return view

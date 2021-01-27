@@ -11,7 +11,7 @@ const Drinks = async () => {
         return Promise.all(drinkURL.map(item => getData(item)))  
         }
         view = `
-        <a class="back-btn" href="/">Home</a>
+        <a class="back-btn" href="/drnk">Home</a>
         ${await getInfo()
             .then(ele => ele.map(item => item.drinks.map( drink => `
             <div class="Drink-card">
